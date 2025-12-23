@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Christmas greetings for иοϐιτα иοϐι from ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠">
+    <title>иοϐιτα иοϐι - Christmas Profile 🎄</title>
+
+    
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1183341118360928327/a_6b6e4e1e98b25ac9de4b98949f06f697.gif?size=1024">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent-color: {
+                    {
+                    user.accent_color
+                }
+            }
+
+            ;
+            --bg-dark: #1e1f22;
+            --bg-darker: #111214;
+            --bg-card: #2b2d31;
+            --bg-hover: #35373c;
+            --text-primary: #f2f3f5;
+            --text-secondary: #b5bac1;
+            --text-muted: #80848e;
+            --border-color: #3f4147;
+            --online-green: #23a559;
+            --christmas-red: #ed4245;
+            --christmas-gold: #faa61a;
+        }
+
+        body {
+                {
+                % if server.banner_url %
+            }
+
+            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
+            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
+
+                {
+                % else %
+            }
+
+            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
+            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
+
+                {
+                % endif %
+            }
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Snowfall Animation - Subtle */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8em;
+            animation: snowfall linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-dark);
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Christmas Banner */
+        .christmas-banner {
+            background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-gold) 100%);
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .christmas-banner .emoji {
+            font-size: 16px;
+            margin: 0 4px;
+        }
+
+        /* Profile Banner */
+        .profile-banner {
+            width: 100%;
+            height: 120px;
+
+            background: {
+                    {
+                    user.accent_color
+                }
+            }
+
+            ;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-banner.has-banner {
+            background-image: url('https://cdn.discordapp.com/banners/543858977734262814/a_87fb0da36eba7b03dcc5b75184df287e.gif?size=512');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, var(--bg-dark));
+        }
+
+        /* Profile Content */
+        .profile-content {
+            padding: 16px;
+            position: relative;
+        }
+
+        /* Avatar Section */
+        .avatar-section {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 6px solid var(--bg-dark);
+            display: block;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+            position: relative;
+            z-index: 1;
+            object-fit: cover;
+        }
+
+        .avatar-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 118px;
+            height: 118px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .status-indicator {
+            width: 22px;
+            height: 22px;
+            background: var(--online-green);
+            border: 4px solid var(--bg-dark);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            z-index: 3;
+        }
+
+        /* User Info */
+        .user-info {
+            margin-top: 12px;
+        }
+
+        .username {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .username-text {
+            display: inline-block;
+        }
+
+        .discriminator {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .display-name {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* Badges */
+        .badges {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            width: 22px;
+            height: 22px;
+            background: transparent;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .badge:hover {
+            transform: scale(1.1);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            margin: 16px 0;
+            opacity: 0.3;
+        }
+
+        /* About Section */
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 8px;
+        }
+
+        .bio-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Member Since */
+        .member-dates {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .date-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .date-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .date-icon-placeholder {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .date-text {
+            color: var(--text-secondary);
+        }
+
+        /* Server Section */
+        .server-section {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .server-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .server-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .server-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .server-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .server-banner {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.3) 0%, rgba(88, 101, 242, 0.1) 100%);
+        }
+
+        .server-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .server-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Christmas Message Card */
+        .christmas-card {
+            background: linear-gradient(135deg, rgba(237, 66, 69, 0.1) 0%, rgba(250, 166, 26, 0.1) 100%);
+            border: 1px solid rgba(237, 66, 69, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .christmas-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--christmas-gold);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .christmas-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .christmas-emojis {
+            text-align: center;
+            font-size: 24px;
+            margin: 12px 0;
+            letter-spacing: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 16px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 24px;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+            }
+
+            .profile-banner {
+                height: 100px;
+            }
+
+            .avatar {
+                width: 88px;
+                height: 88px;
+            }
+
+            .avatar-decoration {
+                width: 104px;
+                height: 104px;
+            }
+
+            .avatar-section {
+                margin-top: -50px;
+            }
+
+            .username {
+                font-size: 18px;
+            }
+
+            .christmas-banner {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-content {
+                padding: 12px;
+            }
+
+            .server-section {
+                padding: 12px;
+            }
+
+            .profile-banner {
+                height: 80px;
+            }
+
+            .avatar {
+                width: 78px;
+                height: 78px;
+                border-width: 4px;
+            }
+
+            .avatar-decoration {
+                width: 92px;
+                height: 92px;
+            }
+
+            .avatar-section {
+                margin-top: -40px;
+            }
+
+            .status-indicator {
+                width: 18px;
+                height: 18px;
+                border-width: 3px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-content>* {
+            animation: fadeIn 0.4s ease-out backwards;
+        }
+
+        .profile-content>*:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .profile-content>*:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .profile-content>*:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .profile-content>*:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .profile-content>*:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+    </style>
+
+    <!-- Gift Box & Modal Styles -->
+    <style>
+        .corner-gift-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            cursor: pointer;
+            z-index: 10000;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+            transition: transform 0.3s;
+        }
+
+        .corner-gift-box:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+                transform: scale(1);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+                transform: scale(1.1);
+            }
+        }
+
+        .gift-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.5s;
+        }
+
+        .gift-box-wrapper {
+            text-align: center;
+        }
+
+        .gift-text {
+            color: var(--christmas-gold);
+            font-size: 24px;
+            margin-top: 30px;
+            font-weight: 600;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(250, 166, 26, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(250, 166, 26, 0.8);
+            }
+        }
+
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .gift-box:hover {
+            transform: rotateY(15deg) rotateX(-10deg);
+        }
+
+        .box-body {
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+            position: absolute;
+            bottom: 0;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .box-lid {
+            width: 210px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+            position: absolute;
+            top: 0;
+            left: -5px;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform-origin: bottom;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .gift-box.opening .box-lid {
+            transform: rotateX(-120deg);
+        }
+
+        .ribbon-horizontal {
+            width: 210px;
+            height: 30px;
+            background: linear-gradient(90deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            position: absolute;
+            top: 30px;
+            left: -5px;
+            z-index: 2;
+        }
+
+        .ribbon-vertical {
+            width: 30px;
+            height: 200px;
+            background: linear-gradient(180deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            position: absolute;
+            left: 85px;
+            z-index: 1;
+        }
+
+        .bow {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #ffd700 0%, #daa520 100%);
+            position: absolute;
+            top: -10px;
+            left: 70px;
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .bow::before,
+        .bow::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ffd700;
+            border-radius: 50% 0;
+        }
+
+        .bow::before {
+            left: -35px;
+            transform: rotate(-45deg);
+        }
+
+        .bow::after {
+            right: -35px;
+            transform: rotate(45deg);
+        }
+
+        .card-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            animation: fadeIn 0.5s;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .card-modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            animation: cardReveal 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes cardReveal {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .card-display {
+            max-width: 800px;
+            max-height: 70vh;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+
+        .card-display img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .card-close {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            background: var(--christmas-red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .card-close:hover {
+            transform: rotate(90deg);
+            background: #ff6b6b;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .card-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .card-btn-download {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+        }
+
+        .card-btn-fullscreen {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+        }
+
+        .card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+
+            .gift-box,
+            .box-body {
+                width: 150px;
+            }
+
+            .box-body {
+                height: 112px;
+            }
+
+            .box-lid,
+            .ribbon-horizontal {
+                width: 160px;
+            }
+
+            .ribbon-vertical {
+                height: 150px;
+            }
+
+            .card-display {
+                min-width: 300px;
+                min-height: 450px;
+            }
+
+            .corner-gift-box {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Snowfall Effect -->
+    <div id="snowfall-container"></div>
+
+    <div class="container">
+        <!-- Christmas Banner -->
+        <div class="christmas-banner">
+            <span class="emoji">🎄</span>
+            Merry Christmas from ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠!
+            <span class="emoji">🎁</span>
+        </div>
+
+        <!-- Profile Banner -->
+        
+        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/543858977734262814/a_87fb0da36eba7b03dcc5b75184df287e.gif?size=512');"></div>
+        
+
+        <!-- Profile Content -->
+        <div class="profile-content">
+            <!-- Avatar Section -->
+            <div class="avatar-section">
+                <div class="avatar-wrapper">
+                    <img src="https://cdn.discordapp.com/avatars/543858977734262814/a_6d2b57a2fa6a1e64d8ba6bccbc9ac69f.gif?size=1024" alt="иοϐιτα иοϐι" class="avatar">
+                    
+                    <div class="status-indicator" title="Online"></div>
+                </div>
+            </div>
+
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="username">
+                    <span class="username-text">its_not_nobita</span>
+                    
+                </div>
+                
+                <div class="display-name">иοϐιτα иοϐι</div>
+                
+
+                <!-- Badges -->
+                <div class="badges">
+                    
+                    <!-- Default Christmas badges if no real badges -->
+                    <div class="badge" title="Server Member">⭐</div>
+                    <div class="badge" title="Christmas Spirit">🎄</div>
+                    
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- About Me Section -->
+            <div class="section">
+                <div class="section-title">About Me</div>
+                <div class="bio-text">🎄 Happy to be part of ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠! Celebrating this wonderful Christmas season with amazing friends!</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Member Since -->
+            <div class="section">
+                <div class="section-title">Member Since</div>
+                <div class="member-dates">
+                    <div class="date-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--text-secondary)">
+                            <path
+                                d="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21.4-.4.8-.58 1.21-1.69-.25-3.4-.25-5.1 0-.18-.41-.37-.82-.59-1.2-1.6.27-3.14.75-4.6 1.43A19.04 19.04 0 0 0 .96 17.7a18.43 18.43 0 0 0 5.63 2.87c.46-.62.86-1.28 1.2-1.98-.65-.25-1.29-.55-1.9-.92.17-.12.32-.24.47-.37 3.58 1.7 7.7 1.7 11.28 0l.46.37c-.6.36-1.24.67-1.9.92.34.7.75 1.36 1.2 1.98 2.03-.63 3.94-1.6 5.64-2.87.47-4.87-.78-9.09-3.3-12.83zM8.3 15.12c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.89 2.27-2 2.27zm7.4 0c-1.1 0-2-1.02-2-2.27 0-1.24.88-2.26 2-2.26s2.02 1.02 2 2.26c0 1.25-.88 2.27-2 2.27z" />
+                        </svg>
+                        <span class="date-text">Feb 09, 2019</span>
+                    </div>
+                    <div class="date-item">
+                        
+                        <img src="https://cdn.discordapp.com/icons/1183341118360928327/a_6b6e4e1e98b25ac9de4b98949f06f697.gif?size=1024" class="date-icon" alt="☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠">
+                        
+                        <span class="date-text">Dec 13, 2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server Section -->
+            <div class="server-section">
+                
+                <img src="https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024" alt="☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠ banner" class="server-banner">
+                
+
+                <div class="server-header">
+                    
+                    <img src="https://cdn.discordapp.com/icons/1183341118360928327/a_6b6e4e1e98b25ac9de4b98949f06f697.gif?size=1024" alt="☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠" class="server-icon">
+                    
+                    <div class="server-info">
+                        <h3>☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠</h3>
+                        <p>Discord Community</p>
+                    </div>
+                </div>
+
+                <div class="server-description">
+                    Level up your day in the gaming & anime hideout! 💕We’ve got chill chats, goofy events, co-op adventures, and enough uwu energy to power a whole server ⚡🌸Grab a snack, say hello, and let’s make some chaos together 🎀👾
+                </div>
+
+                <div class="server-stats">
+                    <div class="stat">
+                        <span class="stat-value">45</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">December 2023</span>
+                        <span class="stat-label">Since</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Christmas Message -->
+            <div class="christmas-card">
+                <h4>🎄 Season's Greetings!</h4>
+                <p>
+                    Wishing you a magical Christmas filled with joy, laughter, and wonderful memories!
+                    Thank you for being part of our amazing community. May your holidays sparkle with
+                    moments of love, laughter, and goodwill. Here's to a fantastic year ahead!
+                </p>
+                <div class="christmas-emojis">🎁 ⭐ 🎅 🔔 ❄️</div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p class="footer-text">
+                    Generated with ❤️ by Himari Discord Bot<br>
+                    December 23, 2025 at 04:52 PM<br>
+                    <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
+                        View on GitHub
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gift Box HTML -->
+    <div id="cornerGiftBox" class="corner-gift-box" style="display: none;" onclick="showCard()">🎁</div>
+
+    <div id="giftBoxModal" class="gift-modal">
+        <div class="gift-box-wrapper">
+            <div class="gift-box" id="giftBox" onclick="openGiftBox()">
+                <div class="box-lid"></div>
+                <div class="box-body"></div>
+                <div class="ribbon-horizontal"></div>
+                <div class="ribbon-vertical"></div>
+                <div class="bow"></div>
+            </div>
+            <p class="gift-text">Click to open your gift! 🎄</p>
+        </div>
+    </div>
+
+    <div id="cardModal" class="card-modal" style="display: none;">
+        <div class="card-modal-content">
+            <button class="card-close" onclick="closeCardModal()">&times;</button>
+            <div id="cardDisplay" class="card-display"></div>
+            <div class="card-actions">
+                <button class="card-btn card-btn-download" onclick="downloadCard()">⬇️ Download Card</button>
+                <button class="card-btn card-btn-fullscreen" onclick="fullscreenCard()">🔍 View Fullscreen</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Snowfall Effect (Subtle)
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            snowflake.style.fontSize = (Math.random() * 0.5 + 0.5) + 'em';
+
+            document.getElementById('snowfall-container').appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 7000);
+        }
+
+        // Create snowflakes periodically (less frequent)
+        setInterval(createSnowflake, 300);
+
+        // Initial snowflakes
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createSnowflake, i * 200);
+        }
+
+        // Smooth page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.3s ease';
+                document.body.style.opacity = '1';
+            }, 50);
+        });
+
+        // === GIFT BOX SYSTEM ===
+        const BASE_URL = 'https://tnienow4-crypto.github.io/himari-wishing';
+        const cards = [
+            { image: `${BASE_URL}/cards/card1.png`, alt: 'Merry Christmas Card' },
+            { image: `${BASE_URL}/cards/card2.png`, alt: 'Season\'s Joy Card' },
+            { image: `${BASE_URL}/cards/card3.png`, alt: 'Winter Wishes Card' },
+            { image: `${BASE_URL}/cards/card4.png`, alt: 'Festive Greetings Card' },
+            { image: `${BASE_URL}/cards/card5.png`, alt: 'Happy Holidays Card' }
+        ];
+
+        // This card number is assigned by the bot when generating the HTML
+        // It will be the same for everyone who opens this particular link
+        const selectedCard = 1;
+
+        window.addEventListener('load', () => {
+            const claimed = localStorage.getItem('christmas_card_claimed');
+            if (claimed) {
+                // If they already claimed, we still show the corner box but we rely on local storage for history?
+                // Actually, if they claimed it, the animation has run. 
+                // We should show the corner gift box and hide the big modal.
+                document.getElementById('giftBoxModal').style.display = 'none';
+                document.getElementById('cornerGiftBox').style.display = 'block';
+            }
+        });
+
+        function openGiftBox() {
+            const giftBox = document.getElementById('giftBox');
+            giftBox.classList.add('opening');
+
+            // Note: We use the server-assigned card (selectedCard) instead of random
+
+            localStorage.setItem('christmas_card_claimed', 'true');
+            localStorage.setItem('christmas_card_timestamp', new Date().toISOString());
+
+            setTimeout(() => {
+                document.getElementById('giftBoxModal').style.display = 'none';
+                showCard();
+                document.getElementById('cornerGiftBox').style.display = 'block';
+            }, 1200);
+        }
+
+        function showCard() {
+            const card = cards[selectedCard];
+            const cardDisplay = document.getElementById('cardDisplay');
+            cardDisplay.innerHTML = `<img src="${card.image}" alt="${card.alt}" style="max-width:100%; max-height:100%; border-radius:15px;">`;
+            document.getElementById('cardModal').style.display = 'flex';
+        }
+
+        function closeCardModal() {
+            document.getElementById('cardModal').style.display = 'none';
+        }
+
+        function downloadCard() {
+            const card = cards[selectedCard];
+            const a = document.createElement('a');
+            a.href = card.image;
+            a.download = `christmas-card-${selectedCard + 1}.png`;
+            a.target = '_blank';
+            a.click();
+        }
+
+        function fullscreenCard() {
+            const modal = document.getElementById('cardModal');
+            if (modal.requestFullscreen) modal.requestFullscreen();
+            else if (modal.webkitRequestFullscreen) modal.webkitRequestFullscreen();
+            else if (modal.msRequestFullscreen) modal.msRequestFullscreen();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCardModal();
+        });
+    </script>
+</body>
+
+</html>
