@@ -24,11 +24,7 @@
         }
 
         :root {
-            --accent-color: {
-                    {
-                    user.accent_color
-                }
-            }
+            --accent-color: #ef8635
 
             ;
             --bg-dark: #1e1f22;
@@ -45,23 +41,12 @@
         }
 
         body {
-                {
-                % if server.banner_url %
-            }
+                
 
             background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
             url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
 
-                {
-                % else %
-            }
-
-            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
-            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
-
-                {
-                % endif %
-            }
+                
 
             background-size: cover;
             background-position: center;
@@ -146,13 +131,7 @@
             width: 100%;
             height: 120px;
 
-            background: {
-                    {
-                    user.accent_color
-                }
-            }
-
-            ;
+            background: #ef8635;
             position: relative;
             overflow: hidden;
         }
@@ -181,7 +160,7 @@
 
         /* Avatar Section */
         .avatar-section {
-            margin-top: -60px;
+            margin-top: -74px;
             position: relative;
             z-index: 10;
         }
@@ -192,8 +171,8 @@
         }
 
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 128px;
+            height: 128px;
             border-radius: 50%;
             border: 6px solid var(--bg-dark);
             display: block;
@@ -204,12 +183,11 @@
         }
 
         .avatar-decoration {
-            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 118px;
-            height: 118px;
+            width: 152px;
+            height: 152px;
             pointer-events: none;
             z-index: 2;
         }
@@ -1037,7 +1015,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 09:25 PM<br>
+                    December 23, 2025 at 09:31 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
@@ -1095,7 +1073,7 @@
 
         // This card number is assigned by the bot when generating the HTML
         // It will be the same for everyone who opens this particular link
-        const selectedCard = 1 || 0;
+        const selectedCard = 2 || 0;
 
         function openGiftBox() {
             // Simply open the card in a new tab
