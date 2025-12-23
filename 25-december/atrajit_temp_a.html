@@ -150,6 +150,19 @@
             border: 6px solid var(--bg-dark);
             display: block;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            pointer-events: none;
+            z-index: 2;
         }
 
         .status-indicator {
@@ -510,6 +523,9 @@
             <div class="avatar-section">
                 <div class="avatar-wrapper">
                     <img src="https://cdn.discordapp.com/avatars/1446810341618225194/4323a258b32953572abfa54e9e4dbb2e.png?size=1024" alt="অত্রজিৎ সরকার" class="avatar">
+                    
+                    <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_a41b03990d296e4ebb25ac0332e6b893.png?size=96" alt="Avatar Decoration" class="avatar-decoration">
+                    
                     <div class="status-indicator" title="Online"></div>
                 </div>
             </div>
@@ -598,7 +614,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 12:57 PM<br>
+                    December 23, 2025 at 01:03 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
