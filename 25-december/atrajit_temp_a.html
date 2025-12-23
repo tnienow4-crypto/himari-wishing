@@ -13,7 +13,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@400..700&family=Homemade+Apple&family=Mountains+of+Christmas:wght@400;700&family=Noto+Color+Emoji&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+Bengali:wght@100..900&family=Tiro+Bangla:ital@0;1&display=swap');
+    </style>
     <style>
         * {
             margin: 0;
@@ -65,6 +67,9 @@
             background-position: center;
             background-attachment: fixed;
 
+            font-family: "Mountains of Christmas",
+            serif;
+            font-weight: 700;
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
@@ -1014,7 +1019,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 04:59 PM<br>
+                    December 23, 2025 at 05:05 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
@@ -1024,7 +1029,7 @@
     </div>
 
     <!-- Gift Box HTML -->
-    <div id="cornerGiftBox" class="corner-gift-box" style="display: none;" onclick="showCard()">🎁</div>
+    <div id="cornerGiftBox" class="corner-gift-box" style="display: block;" onclick="openGiftBox()">🎁</div>
 
     <script>
         // Snowfall Effect (Subtle)
@@ -1072,7 +1077,7 @@
 
         // This card number is assigned by the bot when generating the HTML
         // It will be the same for everyone who opens this particular link
-        const selectedCard = 4 || 0;
+        const selectedCard = 3 || 0;
 
         function openGiftBox() {
             // Simply open the card in a new tab
@@ -1082,21 +1087,8 @@
 
                 // Save that they opened it
                 localStorage.setItem('christmas_card_claimed', 'true');
-
-                // Hide hint if it exists
-                const hint = document.getElementById('giftHint');
-                if (hint) hint.style.display = 'none';
             }
         }
-
-        // Hide hint on load if already claimed
-        window.addEventListener('load', () => {
-            const claimed = localStorage.getItem('christmas_card_claimed');
-            if (claimed) {
-                const hint = document.getElementById('giftHint');
-                if (hint) hint.style.display = 'none';
-            }
-        });
     </script>
 </body>
 
