@@ -24,9 +24,7 @@
         }
 
         :root {
-            --accent-color: #ef8635
-
-            ;
+            --accent-color: #ef8635;
             --bg-dark: #1e1f22;
             --bg-darker: #111214;
             --bg-card: #2b2d31;
@@ -131,13 +129,13 @@
             width: 100%;
             height: 120px;
 
-            background: #ef8635;
+            background: var(--accent-color);
             position: relative;
             overflow: hidden;
         }
 
         .profile-banner.has-banner {
-            background-image: url('https://cdn.discordapp.com/banners/1286326520868241472/a_1aec56d07971bc0fa08fae191786d8db.gif?size=512');
+            background-image: url('https://cdn.discordapp.com/banners/1286326520868241472/a_1aec56d07971bc0fa08fae191786d8db.gif?size=1024');
             background-size: cover;
             background-position: center;
         }
@@ -179,7 +177,7 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
             position: relative;
             z-index: 1;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .avatar-decoration {
@@ -902,7 +900,7 @@
 
         <!-- Profile Banner -->
         
-        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/1286326520868241472/a_1aec56d07971bc0fa08fae191786d8db.gif?size=512');"></div>
+        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/1286326520868241472/a_1aec56d07971bc0fa08fae191786d8db.gif?size=1024');"></div>
         
 
         <!-- Profile Content -->
@@ -910,7 +908,7 @@
             <!-- Avatar Section -->
             <div class="avatar-section">
                 <div class="avatar-wrapper">
-                    <img src="https://cdn.discordapp.com/guilds/1183341118360928327/users/1286326520868241472/avatars/1a8aef302ea64ac8fa87a036e7e410c7.png?size=1024" alt="アトラジット" class="avatar">
+                    <img src="https://cdn.discordapp.com/avatars/1286326520868241472/2f69b38d7ba01409eae5747acfcf7484.png?size=256" alt="アトラジット" class="avatar">
                     
                     <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_918f5d4088854a5d12cfb0e9b821396d.png?size=96" alt="Avatar Decoration" class="avatar-decoration">
                     
@@ -1015,7 +1013,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 09:31 PM<br>
+                    December 23, 2025 at 09:45 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
