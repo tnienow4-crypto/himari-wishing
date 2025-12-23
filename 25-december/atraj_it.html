@@ -24,7 +24,13 @@
         }
 
         :root {
-            --accent-color: #ef8635;
+            --accent-color: {
+                    {
+                    user.accent_color
+                }
+            }
+
+            ;
             --bg-dark: #1e1f22;
             --bg-darker: #111214;
             --bg-card: #2b2d31;
@@ -39,12 +45,23 @@
         }
 
         body {
-                
+                {
+                % if server.banner_url %
+            }
 
             background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
             url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
 
-                
+                {
+                % else %
+            }
+
+            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
+            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
+
+                {
+                % endif %
+            }
 
             background-size: cover;
             background-position: center;
@@ -84,9 +101,28 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--bg-dark);
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--bg-dark) 100%);
             min-height: 100vh;
             position: relative;
+        }
+
+        /* Overlay to ensure text readability if accent is bright */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+
+        /* Ensure content sits above the overlay */
+        .profile-content,
+        .christmas-banner {
+            position: relative;
+            z-index: 1;
         }
 
         /* Christmas Banner */
@@ -110,7 +146,13 @@
             width: 100%;
             height: 120px;
 
-            background: #ef8635;
+            background: {
+                    {
+                    user.accent_color
+                }
+            }
+
+            ;
             position: relative;
             overflow: hidden;
         }
@@ -995,7 +1037,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 09:02 PM<br>
+                    December 23, 2025 at 09:25 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
@@ -1053,7 +1095,7 @@
 
         // This card number is assigned by the bot when generating the HTML
         // It will be the same for everyone who opens this particular link
-        const selectedCard = 0 || 0;
+        const selectedCard = 1 || 0;
 
         function openGiftBox() {
             // Simply open the card in a new tab
