@@ -24,13 +24,7 @@
         }
 
         :root {
-            --accent-color: {
-                    {
-                    user.accent_color
-                }
-            }
-
-            ;
+            --accent-color: #e18fe7;
             --bg-dark: #1e1f22;
             --bg-darker: #111214;
             --bg-card: #2b2d31;
@@ -45,28 +39,16 @@
         }
 
         body {
-                {
-                % if server.banner_url %
-            }
+                
 
             background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
             url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
 
-                {
-                % else %
-            }
-
-            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
-            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
-
-                {
-                % endif %
-            }
+                
 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-
             font-family: "Mountains of Christmas",
             serif;
             font-weight: 700;
@@ -102,9 +84,28 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--bg-dark);
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--bg-dark) 100%);
             min-height: 100vh;
             position: relative;
+        }
+
+        /* Overlay to ensure text readability if accent is bright */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+        }
+
+        /* Ensure content sits above the overlay */
+        .profile-content,
+        .christmas-banner {
+            position: relative;
+            z-index: 1;
         }
 
         /* Christmas Banner */
@@ -128,19 +129,13 @@
             width: 100%;
             height: 120px;
 
-            background: {
-                    {
-                    user.accent_color
-                }
-            }
-
-            ;
+            background: var(--accent-color);
             position: relative;
             overflow: hidden;
         }
 
         .profile-banner.has-banner {
-            background-image: url('https://cdn.discordapp.com/banners/1183340812982034502/a_060d9f34e3c9fb6b93e72156be85b7a1.gif?size=512');
+            background-image: url('https://cdn.discordapp.com/banners/1183340812982034502/a_060d9f34e3c9fb6b93e72156be85b7a1.gif?size=1024');
             background-size: cover;
             background-position: center;
         }
@@ -163,7 +158,7 @@
 
         /* Avatar Section */
         .avatar-section {
-            margin-top: -60px;
+            margin-top: -74px;
             position: relative;
             z-index: 10;
         }
@@ -174,15 +169,15 @@
         }
 
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 128px;
+            height: 128px;
             border-radius: 50%;
             border: 6px solid var(--bg-dark);
             display: block;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
             position: relative;
             z-index: 1;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .avatar-decoration {
@@ -190,8 +185,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 118px;
-            height: 118px;
+            width: 152px;
+            height: 152px;
             pointer-events: none;
             z-index: 2;
         }
@@ -906,7 +901,7 @@
 
         <!-- Profile Banner -->
         
-        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/1183340812982034502/a_060d9f34e3c9fb6b93e72156be85b7a1.gif?size=512');"></div>
+        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/1183340812982034502/a_060d9f34e3c9fb6b93e72156be85b7a1.gif?size=1024');"></div>
         
 
         <!-- Profile Content -->
@@ -914,7 +909,7 @@
             <!-- Avatar Section -->
             <div class="avatar-section">
                 <div class="avatar-wrapper">
-                    <img src="https://cdn.discordapp.com/avatars/1183340812982034502/a_0bfecc63fd1a9cfa5081b0d81173d9f0.gif?size=1024" alt="✯𝕯𝖔𝖗𝖆𝖊𝖒𝖔𝖓✯" class="avatar">
+                    <img src="https://cdn.discordapp.com/avatars/1183340812982034502/a_0bfecc63fd1a9cfa5081b0d81173d9f0.gif?size=256" alt="✯𝕯𝖔𝖗𝖆𝖊𝖒𝖔𝖓✯" class="avatar">
                     
                     <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_635e4ddde3b2f9dc0ae874e17194679c.png?size=96" alt="Avatar Decoration" class="avatar-decoration">
                     
@@ -1019,7 +1014,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 05:05 PM<br>
+                    December 23, 2025 at 09:52 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
