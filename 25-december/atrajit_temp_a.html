@@ -72,10 +72,11 @@
         .snowflake {
             position: fixed;
             top: -10px;
-            z-index: 9999;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.8em;
-            animation: snowfall linear infinite;
+            color: #fff;
+            font-size: 1em;
+            opacity: 0.9;
+            animation: fall linear forwards;
+            z-index: 1;
             pointer-events: none;
         }
 
@@ -526,6 +527,11 @@
                 border-width: 4px;
             }
 
+            .avatar-decoration {
+                width: 95px;
+                height: 95px;
+            }
+
             .avatar-section {
                 margin-top: -40px;
             }
@@ -701,7 +707,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 02:01 PM<br>
+                    December 23, 2025 at 02:07 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
