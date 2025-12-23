@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Christmas greetings for অত্রজিৎ সরকার from Wishing Test">
+    <title>Merry Christmas, অত্রজিৎ সরকার! 🎄</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent-color: #5865F2;
+            --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --christmas-red: #dc2626;
+            --christmas-gold: #fbbf24;
+            --christmas-green: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Snowfall Animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 1;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+            animation: snowfall linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.3;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--christmas-gold) 0%, #fff 50%, var(--christmas-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .emoji {
+            font-size: 3rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Glassmorphism Card */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        .card.featured {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Profile Section */
+        .profile-banner {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, rgba(88, 101, 242, 0.6) 100%);
+            border-radius: 16px 16px 0 0;
+            margin: -2rem -2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-banner.has-banner {
+            background-image: url('None');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 6px solid var(--accent-color);
+            margin-top: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .profile-name {
+            margin-top: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .profile-username {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-bio {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 1rem 0;
+            max-width: 600px;
+        }
+
+        .profile-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .meta-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .meta-value {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        /* Server Section */
+        .server-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .server-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .server-info h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .server-info p {
+            color: var(--text-secondary);
+        }
+
+        .server-description {
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .server-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--christmas-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Festive Decoration */
+        .decoration {
+            text-align: center;
+            font-size: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--card-border);
+            margin-top: 4rem;
+        }
+
+        .footer-message {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-meta {
+            font-size: 0.875rem;
+            opacity: 0.6;
+        }
+
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .server-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Snowfall Effect -->
+    <div id="snowfall-container"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="emoji">🎄</div>
+            <h1>Merry Christmas, অত্রজিৎ সরকার!</h1>
+            <p>Warmest wishes for a joyful holiday season</p>
+        </section>
+
+        <!-- Main Content -->
+        <div class="content-grid">
+            <!-- User Profile Card -->
+            <div class="card featured">
+                
+                <div class="profile-banner"></div>
+                
+                
+                <img src="https://cdn.discordapp.com/avatars/1446810341618225194/4323a258b32953572abfa54e9e4dbb2e.png?size=1024" alt="অত্রজিৎ সরকার" class="profile-avatar">
+                
+                <h2 class="profile-name">অত্রজিৎ সরকার</h2>
+                <p class="profile-username">atrajit_temp.a</p>
+                
+                <p class="profile-bio">A wonderful member of our community! 🎄</p>
+                
+                <div class="profile-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Joined Server</span>
+                        <span class="meta-value">December 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server Card -->
+            <div class="card">
+                <div class="server-header">
+                    
+                    <img src="https://cdn.discordapp.com/icons/1452904362178515019/9eddda301b09af41b3758b217722c66e.png?size=1024" alt="Wishing Test" class="server-icon">
+                    
+                    <div class="server-info">
+                        <h2>Wishing Test</h2>
+                        <p>A Christmas wish from your community</p>
+                    </div>
+                </div>
+                
+                <p class="server-description">A wonderful Discord community</p>
+                
+                <div class="server-stats">
+                    <div class="stat-box">
+                        <span class="stat-value">5</span>
+                        <span class="stat-label">Members</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">December 2025</span>
+                        <span class="stat-label">Since</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Festive Message Card -->
+            <div class="card">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--christmas-gold);">
+                    May Your Holidays Be Bright ✨
+                </h3>
+                <p style="line-height: 1.8; color: var(--text-secondary);">
+                    As we celebrate this special season, we wanted to send you warm wishes and heartfelt gratitude 
+                    for being part of our community. May your days be filled with joy, laughter, and the magic 
+                    of Christmas. Here's to friendship, togetherness, and countless wonderful memories to come!
+                </p>
+                <div class="decoration">🎁 🎅 ⭐ 🔔 ❄️</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-message">Generated with ❤️ by Himari Discord Bot</p>
+            <p class="footer-meta">
+                Created on December 23, 2025 at 12:23 PM<br>
+                <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
+                    View on GitHub
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Snowfall Effect
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            document.getElementById('snowfall-container').appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 200);
+
+        // Initial batch of snowflakes
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 100);
+        }
+
+        // Smooth scroll animation for page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
