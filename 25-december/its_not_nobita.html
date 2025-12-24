@@ -25,13 +25,8 @@
         }
 
         :root {
-            --accent-color: {
-                    {
-                    user.theme_color or user.primary_color or user.accent_color or '#5865F2'
-                }
-            }
-
-            ;
+            --accent-color: #000000;
+            --primary-color: var(--accent-color);
             --bg-dark: #1e1f22;
             --bg-darker: #111214;
             --bg-card: #2b2d31;
@@ -43,6 +38,18 @@
             --online-green: #23a559;
             --christmas-red: #ed4245;
             --christmas-gold: #faa61a;
+        }
+
+        /* Prefer a lighter version of the accent color as the page's primary color */
+        @supports (color: color-mix(in srgb, #000 50%, #fff)) {
+            :root {
+                /* Warm the accent slightly (Christmas tone), then lighten for a polished card background */
+                --primary-color: color-mix(
+                    in srgb,
+                    color-mix(in srgb, var(--accent-color) 70%, var(--christmas-gold) 30%) 40%,
+                    white
+                );
+            }
         }
 
         body {
@@ -80,8 +87,10 @@
             position: fixed;
             top: -10px;
             z-index: 9999;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1em;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.35);
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
             animation: snowfall linear infinite;
             pointer-events: none;
         }
@@ -89,7 +98,7 @@
         @keyframes snowfall {
             0% {
                 transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
+                opacity: 1;
             }
 
             100% {
@@ -102,10 +111,11 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: linear-gradient(180deg, var(--accent-color) 0%, var(--bg-dark) 100%);
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--bg-dark) 100%);
             min-height: 100vh;
             position: relative;
             overflow: hidden;
+            isolation: isolate;
         }
 
         /* Overlay to ensure text readability if accent is bright */
@@ -118,6 +128,13 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.75);
             z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ensure all card content renders above the overlay */
+        .container > * {
+            position: relative;
+            z-index: 1;
         }
 
         /* Ensure content sits above the overlay */
@@ -1088,7 +1105,7 @@
 
                 <div class="server-stats">
                     <div class="stat">
-                        <span class="stat-value">46</span>
+                        <span class="stat-value">47</span>
                         <span class="stat-label">Members</span>
                     </div>
                     <div class="stat">
@@ -1113,7 +1130,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 24, 2025 at 12:19 PM<br>
+                    December 24, 2025 at 12:40 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
@@ -1132,8 +1149,8 @@
             snowflake.classList.add('snowflake');
             snowflake.innerHTML = '❄';
             snowflake.style.left = Math.random() * 100 + '%';
-            snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            snowflake.style.fontSize = (Math.random() * 0.5 + 0.5) + 'em';
+            snowflake.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            snowflake.style.fontSize = (Math.random() * 0.8 + 0.8) + 'em';
 
             document.getElementById('snowfall-container').appendChild(snowflake);
 
@@ -1171,7 +1188,7 @@
 
         // This card number is assigned by the bot when generating the HTML
         // It will be the same for everyone who opens this particular link
-        const selectedCard = 3 || 0;
+        const selectedCard = 2 || 0;
 
         function openGiftBox() {
             // Simply open the card in a new tab
