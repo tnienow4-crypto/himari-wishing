@@ -4,14 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Christmas greetings for অত্রজিৎ সরকার from Wishing Test">
+    <meta name="description" content="Christmas greetings for অত্রজিৎ সরকার from ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠">
     <title>অত্রজিৎ সরকার - Christmas Profile 🎄</title>
+
     
-    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1452904362178515019/9eddda301b09af41b3758b217722c66e.png?size=1024">
+    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/icons/1183341118360928327/a_6b6e4e1e98b25ac9de4b98949f06f697.gif?size=1024">
     
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@400..700&family=Homemade+Apple&family=Mountains+of+Christmas:wght@400;700&family=Noto+Color+Emoji&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+Bengali:wght@100..900&family=Tiro+Bangla:ital@0;1&display=swap');
+    </style>
     <style>
         * {
             margin: 0;
@@ -20,13 +25,8 @@
         }
 
         :root {
-            --accent-color: {
-                    {
-                    user.accent_color
-                }
-            }
-
-            ;
+            --accent-color: #5865F2;
+            --primary-color: var(--accent-color);
             --bg-dark: #1e1f22;
             --bg-darker: #111214;
             --bg-card: #2b2d31;
@@ -40,29 +40,43 @@
             --christmas-gold: #faa61a;
         }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        /* Prefer a lighter version of the accent color as the page's primary color */
+        @supports (color: color-mix(in srgb, #000 50%, #fff)) {
+            :root {
+                /* Warm the accent slightly (Christmas tone), then lighten for a polished card background */
+                --primary-color: color-mix(
+                    in srgb,
+                    color-mix(in srgb, var(--accent-color) 70%, var(--christmas-gold) 30%) 40%,
+                    white
+                );
+            }
+        }
 
+        body {
                 {
-                % if server.banner_url %
+                %if server.banner_url%
             }
 
-            background: linear-gradient(rgba(17, 18, 20, 0.85), rgba(17, 18, 20, 0.92)),
-            url('None');
+            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
+            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
+
+                {
+                %else%
+            }
+
+            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
+            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
+
+                {
+                %endif%
+            }
+
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-
-                {
-                % else %
-            }
-
-            background: var(--bg-darker);
-
-                {
-                % endif %
-            }
-
+            font-family: "Mountains of Christmas",
+            serif;
+            font-weight: 700;
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
@@ -73,8 +87,10 @@
             position: fixed;
             top: -10px;
             z-index: 9999;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1em;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.35);
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
             animation: snowfall linear infinite;
             pointer-events: none;
         }
@@ -82,7 +98,7 @@
         @keyframes snowfall {
             0% {
                 transform: translateY(0) rotate(0deg);
-                opacity: 0.7;
+                opacity: 1;
             }
 
             100% {
@@ -95,9 +111,37 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--bg-dark);
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--bg-dark) 100%);
             min-height: 100vh;
             position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        /* Overlay to ensure text readability if accent is bright */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ensure all card content renders above the overlay */
+        .container > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ensure content sits above the overlay */
+        .profile-content,
+        .christmas-banner {
+            position: relative;
+            z-index: 1;
         }
 
         /* Christmas Banner */
@@ -121,19 +165,13 @@
             width: 100%;
             height: 120px;
 
-            background: {
-                    {
-                    user.accent_color
-                }
-            }
-
-            ;
+            background: var(--accent-color);
             position: relative;
             overflow: hidden;
         }
 
         .profile-banner.has-banner {
-            background-image: url('https://cdn.discordapp.com/banners/1446875893883473993/a_fe2a6e520c23f96a987ee1e1efe5377a.gif?size=512');
+            background-image: url('https://cdn.discordapp.com/banners/1446875893883473993/a_fe2a6e520c23f96a987ee1e1efe5377a.gif?size=1024');
             background-size: cover;
             background-position: center;
         }
@@ -156,7 +194,7 @@
 
         /* Avatar Section */
         .avatar-section {
-            margin-top: -60px;
+            margin-top: -74px;
             position: relative;
             z-index: 10;
         }
@@ -167,15 +205,15 @@
         }
 
         .avatar {
-            width: 92px;
-            height: 92px;
+            width: 128px;
+            height: 128px;
             border-radius: 50%;
             border: 6px solid var(--bg-dark);
             display: block;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
             position: relative;
             z-index: 1;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .avatar-decoration {
@@ -183,10 +221,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 106px;
-            height: 106px;
+            width: 152px;
+            height: 152px;
             pointer-events: none;
             z-index: 2;
+        }
+
+        .avatar-hat {
+            position: absolute;
+            left: 50%;
+            top: -35px;
+            transform: translateX(-55%) scale(1.05);
+            width: calc(100% + 90px);
+            height: calc(100% + 90px);
+            pointer-events: none;
+            z-index: 4;
         }
 
         .status-indicator {
@@ -489,13 +538,13 @@
             }
 
             .avatar {
-                width: 80px;
-                height: 80px;
+                width: 88px;
+                height: 88px;
             }
 
             .avatar-decoration {
-                width: 92px;
-                height: 92px;
+                width: 104px;
+                height: 104px;
             }
 
             .avatar-section {
@@ -526,14 +575,14 @@
             }
 
             .avatar {
-                width: 72px;
-                height: 72px;
-                border-width: 5px;
+                width: 78px;
+                height: 78px;
+                border-width: 4px;
             }
 
             .avatar-decoration {
-                width: 83px;
-                height: 83px;
+                width: 92px;
+                height: 92px;
             }
 
             .avatar-section {
@@ -544,8 +593,6 @@
                 width: 18px;
                 height: 18px;
                 border-width: 3px;
-                bottom: 0px;
-                right: 0px;
             }
         }
 
@@ -586,6 +633,305 @@
             animation-delay: 0.5s;
         }
     </style>
+
+    <!-- Gift Box & Modal Styles -->
+    <style>
+        .corner-gift-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 48px;
+            cursor: pointer;
+            z-index: 10000;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+            transition: transform 0.3s;
+        }
+
+        .corner-gift-box:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+                transform: scale(1);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+                transform: scale(1.1);
+            }
+        }
+
+        .gift-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeIn 0.5s;
+        }
+
+        .gift-box-wrapper {
+            text-align: center;
+        }
+
+        .gift-text {
+            color: var(--christmas-gold);
+            font-size: 24px;
+            margin-top: 30px;
+            font-weight: 600;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(250, 166, 26, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(250, 166, 26, 0.8);
+            }
+        }
+
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .gift-box:hover {
+            transform: rotateY(15deg) rotateX(-10deg);
+        }
+
+        .box-body {
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+            position: absolute;
+            bottom: 0;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .box-lid {
+            width: 210px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+            position: absolute;
+            top: 0;
+            left: -5px;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform-origin: bottom;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .gift-box.opening .box-lid {
+            transform: rotateX(-120deg);
+        }
+
+        .ribbon-horizontal {
+            width: 210px;
+            height: 30px;
+            background: linear-gradient(90deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            position: absolute;
+            top: 30px;
+            left: -5px;
+            z-index: 2;
+        }
+
+        .ribbon-vertical {
+            width: 30px;
+            height: 200px;
+            background: linear-gradient(180deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            position: absolute;
+            left: 85px;
+            z-index: 1;
+        }
+
+        .bow {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #ffd700 0%, #daa520 100%);
+            position: absolute;
+            top: -10px;
+            left: 70px;
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .bow::before,
+        .bow::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #ffd700;
+            border-radius: 50% 0;
+        }
+
+        .bow::before {
+            left: -35px;
+            transform: rotate(-45deg);
+        }
+
+        .bow::after {
+            right: -35px;
+            transform: rotate(45deg);
+        }
+
+        .card-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9998;
+            animation: fadeIn 0.5s;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .card-modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            animation: cardReveal 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes cardReveal {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .card-display {
+            max-width: 800px;
+            max-height: 70vh;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+
+        .card-display img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .card-close {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            background: var(--christmas-red);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .card-close:hover {
+            transform: rotate(90deg);
+            background: #ff6b6b;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .card-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .card-btn-download {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+        }
+
+        .card-btn-fullscreen {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+        }
+
+        .card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+
+            .gift-box,
+            .box-body {
+                width: 150px;
+            }
+
+            .box-body {
+                height: 112px;
+            }
+
+            .box-lid,
+            .ribbon-horizontal {
+                width: 160px;
+            }
+
+            .ribbon-vertical {
+                height: 150px;
+            }
+
+            .card-display {
+                min-width: 300px;
+                min-height: 450px;
+            }
+
+            .corner-gift-box {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -596,13 +942,76 @@
         <!-- Christmas Banner -->
         <div class="christmas-banner">
             <span class="emoji">🎄</span>
-            Merry Christmas from Wishing Test!
+            Merry Christmas from ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠!
             <span class="emoji">🎁</span>
         </div>
+        <dotlottie-wc
+            id="intro-lottie"
+            class="lottie-intro"
+            src="https://lottie.host/bf93fb9a-2f83-4ded-8731-f33ab752b3a1/RxkQi1sKlY.lottie"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;"
+            autoplay></dotlottie-wc>
+
+        <div id="running-lottie-wrapper" class="lottie-runner-wrapper" aria-hidden="true">
+            <dotlottie-wc
+                id="running-lottie"
+                src="https://lottie.host/e753b45d-4b24-4bc4-9567-69ac9024a727/hYu9NLXMRc.lottie"
+                style="width: 300px; height: 300px; pointer-events: none;"
+                autoplay
+                loop></dotlottie-wc>
+        </div>
+
+        <style>
+            .lottie-intro {
+                opacity: 1;
+                transform: scale(1);
+                transition: opacity 900ms ease, transform 900ms ease;
+            }
+
+            .lottie-intro.fade-out {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            .lottie-runner-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                transform: translateY(-50%);
+                pointer-events: none;
+                z-index: 4;
+                opacity: 0;
+            }
+
+            @keyframes runAcross {
+                0% {
+                    left: 100%;
+                    opacity: 0;
+                }
+
+                8% {
+                    opacity: 1;
+                }
+
+                85% {
+                    opacity: 1;
+                }
+
+                100% {
+                    left: -320px;
+                    opacity: 0;
+                }
+            }
+
+            .lottie-runner-wrapper.running-animation {
+                opacity: 1;
+                animation: runAcross 2.8s linear infinite;
+            }
+        </style>
 
         <!-- Profile Banner -->
         
-        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/1446875893883473993/a_fe2a6e520c23f96a987ee1e1efe5377a.gif?size=512');"></div>
+        <div class="profile-banner has-banner" style="background-image: url('https://cdn.discordapp.com/banners/1446875893883473993/a_fe2a6e520c23f96a987ee1e1efe5377a.gif?size=1024');"></div>
         
 
         <!-- Profile Content -->
@@ -610,10 +1019,18 @@
             <!-- Avatar Section -->
             <div class="avatar-section">
                 <div class="avatar-wrapper">
-                    <img src="https://cdn.discordapp.com/avatars/1446875893883473993/4f787f550b67423106820ae73bf08afd.png?size=1024" alt="অত্রজিৎ সরকার" class="avatar">
+                    <img src="https://cdn.discordapp.com/avatars/1446875893883473993/4f787f550b67423106820ae73bf08afd.png?size=256" alt="অত্রজিৎ সরকার" class="avatar">
                     
                     <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_4de862a4b8672926f52f3fe81222c771.png?size=96" alt="Avatar Decoration" class="avatar-decoration">
                     
+
+                    <dotlottie-wc
+                        class="avatar-hat"
+                        src="https://lottie.host/6eb666e2-f7f0-42ee-adb4-fbd48f7af40e/dUwXuVnvEp.lottie"
+                        autoplay
+                        loop
+                        aria-hidden="true"></dotlottie-wc>
+
                     <div class="status-indicator" title="Online"></div>
                 </div>
             </div>
@@ -643,7 +1060,7 @@
             <!-- About Me Section -->
             <div class="section">
                 <div class="section-title">About Me</div>
-                <div class="bio-text">🎄 Happy to be part of Wishing Test! Celebrating this wonderful Christmas season with amazing friends!</div>
+                <div class="bio-text">🎄 Happy to be part of ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠! Celebrating this wonderful Christmas season with amazing friends!</div>
             </div>
 
             <div class="divider"></div>
@@ -661,9 +1078,9 @@
                     </div>
                     <div class="date-item">
                         
-                        <img src="https://cdn.discordapp.com/icons/1452904362178515019/9eddda301b09af41b3758b217722c66e.png?size=1024" class="date-icon" alt="Wishing Test">
+                        <img src="https://cdn.discordapp.com/icons/1183341118360928327/a_6b6e4e1e98b25ac9de4b98949f06f697.gif?size=1024" class="date-icon" alt="☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠">
                         
-                        <span class="date-text">Dec 23, 2025</span>
+                        <span class="date-text">Dec 06, 2025</span>
                     </div>
                 </div>
             </div>
@@ -671,28 +1088,30 @@
             <!-- Server Section -->
             <div class="server-section">
                 
+                <img src="https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024" alt="☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠ banner" class="server-banner">
+                
 
                 <div class="server-header">
                     
-                    <img src="https://cdn.discordapp.com/icons/1452904362178515019/9eddda301b09af41b3758b217722c66e.png?size=1024" alt="Wishing Test" class="server-icon">
+                    <img src="https://cdn.discordapp.com/icons/1183341118360928327/a_6b6e4e1e98b25ac9de4b98949f06f697.gif?size=1024" alt="☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠" class="server-icon">
                     
                     <div class="server-info">
-                        <h3>Wishing Test</h3>
+                        <h3>☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠</h3>
                         <p>Discord Community</p>
                     </div>
                 </div>
 
                 <div class="server-description">
-                    A wonderful Discord community
+                    Level up your day in the gaming & anime hideout! 💕We’ve got chill chats, goofy events, co-op adventures, and enough uwu energy to power a whole server ⚡🌸Grab a snack, say hello, and let’s make some chaos together 🎀👾
                 </div>
 
                 <div class="server-stats">
                     <div class="stat">
-                        <span class="stat-value">6</span>
+                        <span class="stat-value">47</span>
                         <span class="stat-label">Members</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-value">December 2025</span>
+                        <span class="stat-value">December 2023</span>
                         <span class="stat-label">Since</span>
                     </div>
                 </div>
@@ -713,7 +1132,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 03:55 PM<br>
+                    December 24, 2025 at 09:00 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
@@ -722,6 +1141,9 @@
         </div>
     </div>
 
+    <!-- Gift Box HTML -->
+    <div id="cornerGiftBox" class="corner-gift-box" style="display: block;" onclick="openGiftBox()">🎁</div>
+
     <script>
         // Snowfall Effect (Subtle)
         function createSnowflake() {
@@ -729,8 +1151,8 @@
             snowflake.classList.add('snowflake');
             snowflake.innerHTML = '❄';
             snowflake.style.left = Math.random() * 100 + '%';
-            snowflake.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            snowflake.style.fontSize = (Math.random() * 0.5 + 0.5) + 'em';
+            snowflake.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            snowflake.style.fontSize = (Math.random() * 0.8 + 0.8) + 'em';
 
             document.getElementById('snowfall-container').appendChild(snowflake);
 
@@ -763,123 +1185,60 @@
             { image: `${BASE_URL}/cards/card2.png`, alt: 'Season\'s Joy Card' },
             { image: `${BASE_URL}/cards/card3.png`, alt: 'Winter Wishes Card' },
             { image: `${BASE_URL}/cards/card4.png`, alt: 'Festive Greetings Card' },
-            { image: `${BASE_URL}/cards/card5.png`, alt: 'Happy Holidays Card' }
+            { image: `${BASE_URL}/cards/card5.png`, alt: 'Happy Holidays Card' },
+            { image: `${BASE_URL}/cards/card6.png`, alt: 'Christmas Card 6' },
+            { image: `${BASE_URL}/cards/card7.png`, alt: 'Christmas Card 7' },
+            { image: `${BASE_URL}/cards/card8.png`, alt: 'Christmas Card 8' },
+            { image: `${BASE_URL}/cards/card9.png`, alt: 'Christmas Card 9' },
+            { image: `${BASE_URL}/cards/card10.png`, alt: 'Christmas Card 10' }
         ];
 
         // This card number is assigned by the bot when generating the HTML
-        // It will be the same for everyone who opens this link
-        const selectedCard = 3; // Bot will set this to a random number between 0-4
-
-        // Initialize gift box
-        window.addEventListener('load', () => {
-            const claimed = localStorage.getItem('christmas_card_claimed');
-            if (claimed) {
-                // Hide the hint text since they already clicked it
-                const hint = document.getElementById('giftHint');
-                if (hint) hint.style.display = 'none';
-            }
-        });
+        // It will be the same for everyone who opens this particular link
+        const selectedCard = 8 || 0;
 
         function openGiftBox() {
+            // Simply open the card in a new tab
             const card = cards[selectedCard];
-            // Mark as claimed in browser
-            localStorage.setItem('christmas_card_claimed', 'true');
-            localStorage.setItem('christmas_card_timestamp', new Date().toISOString());
+            if (card && card.image) {
+                window.open(card.image, '_blank');
 
-            // Hide the hint after first click
-            const hint = document.getElementById('giftHint');
-            if (hint) hint.style.display = 'none';
+                // Save that they opened it
+                localStorage.setItem('christmas_card_claimed', 'true');
+            }
+        }
 
-            // Open card image in new tab
-            window.open(card.image, '_blank');
+        // Animation Sequence Logic
+        const introLottie = document.getElementById('intro-lottie');
+        const runningLottie = document.getElementById('running-lottie');
+        const runningLottieWrapper = document.getElementById('running-lottie-wrapper');
+
+        let hasStartedRunner = false;
+
+        function startRunningSequenceOnce() {
+            if (hasStartedRunner) return;
+            hasStartedRunner = true;
+
+            if (introLottie) {
+                introLottie.classList.add('fade-out');
+            }
+
+            setTimeout(() => {
+                if (introLottie) introLottie.style.display = 'none';
+                if (runningLottieWrapper) runningLottieWrapper.classList.add('running-animation');
+                if (runningLottie && typeof runningLottie.play === 'function') runningLottie.play();
+            }, 900);
+        }
+
+        if (introLottie) {
+            introLottie.addEventListener('complete', startRunningSequenceOnce);
+
+            // Fallback: if the web-component event doesn't fire, start after a short delay.
+            setTimeout(startRunningSequenceOnce, 4500);
+        } else {
+            startRunningSequenceOnce();
         }
     </script>
-
-    <!-- Gift Box in Corner -->
-    <div class="gift-box-container">
-        <div id="cornerGiftBox" class="corner-gift-box" onclick="openGiftBox()">🎁</div>
-        <div id="giftHint" class="gift-hint">Click for a surprise! 🎄</div>
-    </div>
-
-    <style>
-        .gift-box-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .corner-gift-box {
-            font-size: 48px;
-            cursor: pointer;
-            animation: giftPulse 2s infinite;
-            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
-            transition: transform 0.3s;
-        }
-
-        .corner-gift-box:hover {
-            transform: scale(1.2) rotate(15deg);
-            filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1));
-        }
-
-        .gift-hint {
-            background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-gold) 100%);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-            animation: glowHint 2s infinite;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes giftPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
-            }
-
-            50% {
-                transform: scale(1.1);
-                filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1));
-            }
-        }
-
-        @keyframes glowHint {
-
-            0%,
-            100% {
-                box-shadow: 0 4px 12px rgba(250, 166, 26, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 4px 20px rgba(250, 166, 26, 0.8), 0 0 30px rgba(250, 166, 26, 0.6);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .corner-gift-box {
-                font-size: 36px;
-            }
-
-            .gift-hint {
-                font-size: 10px;
-                padding: 5px 10px;
-            }
-
-            .gift-box-container {
-                top: 15px;
-                right: 15px;
-            }
-        }
-    </style>
-
+</body>
 
 </html>
