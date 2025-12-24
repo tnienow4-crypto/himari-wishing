@@ -13,6 +13,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Beginner:wght@400..700&family=Homemade+Apple&family=Mountains+of+Christmas:wght@400;700&family=Noto+Color+Emoji&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+Bengali:wght@100..900&family=Tiro+Bangla:ital@0;1&display=swap');
     </style>
@@ -24,7 +25,13 @@
         }
 
         :root {
-            --accent-color: #ef8635;
+            --accent-color: {
+                    {
+                    user.theme_color or user.primary_color or user.accent_color or '#5865F2'
+                }
+            }
+
+            ;
             --bg-dark: #1e1f22;
             --bg-darker: #111214;
             --bg-card: #2b2d31;
@@ -39,12 +46,23 @@
         }
 
         body {
-                
+                {
+                %if server.banner_url%
+            }
 
             background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
             url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
 
-                
+                {
+                %else%
+            }
+
+            background: linear-gradient(rgba(17, 18, 20, 0.6), rgba(17, 18, 20, 0.8)),
+            url('https://cdn.discordapp.com/banners/1183341118360928327/a_b2045eb95c161e175a788c550e8ba4c5.gif?size=1024');
+
+                {
+                %endif%
+            }
 
             background-size: cover;
             background-position: center;
@@ -87,6 +105,7 @@
             background: linear-gradient(180deg, var(--accent-color) 0%, var(--bg-dark) 100%);
             min-height: 100vh;
             position: relative;
+            overflow: hidden;
         }
 
         /* Overlay to ensure text readability if accent is bright */
@@ -189,6 +208,17 @@
             height: 152px;
             pointer-events: none;
             z-index: 2;
+        }
+
+        .avatar-hat {
+            position: absolute;
+            left: 50%;
+            top: -35px;
+            transform: translateX(-55%) scale(1.05);
+            width: calc(100% + 90px);
+            height: calc(100% + 90px);
+            pointer-events: none;
+            z-index: 4;
         }
 
         .status-indicator {
@@ -898,6 +928,69 @@
             Merry Christmas from ☠ ᴄʜᴀᴏs sʜᴏᴡᴅᴏᴡɴ ☠!
             <span class="emoji">🎁</span>
         </div>
+        <dotlottie-wc
+            id="intro-lottie"
+            class="lottie-intro"
+            src="https://lottie.host/bf93fb9a-2f83-4ded-8731-f33ab752b3a1/RxkQi1sKlY.lottie"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;"
+            autoplay></dotlottie-wc>
+
+        <div id="running-lottie-wrapper" class="lottie-runner-wrapper" aria-hidden="true">
+            <dotlottie-wc
+                id="running-lottie"
+                src="https://lottie.host/e753b45d-4b24-4bc4-9567-69ac9024a727/hYu9NLXMRc.lottie"
+                style="width: 300px; height: 300px; pointer-events: none;"
+                autoplay
+                loop></dotlottie-wc>
+        </div>
+
+        <style>
+            .lottie-intro {
+                opacity: 1;
+                transform: scale(1);
+                transition: opacity 900ms ease, transform 900ms ease;
+            }
+
+            .lottie-intro.fade-out {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            .lottie-runner-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                transform: translateY(-50%);
+                pointer-events: none;
+                z-index: 4;
+                opacity: 0;
+            }
+
+            @keyframes runAcross {
+                0% {
+                    left: 100%;
+                    opacity: 0;
+                }
+
+                8% {
+                    opacity: 1;
+                }
+
+                85% {
+                    opacity: 1;
+                }
+
+                100% {
+                    left: -320px;
+                    opacity: 0;
+                }
+            }
+
+            .lottie-runner-wrapper.running-animation {
+                opacity: 1;
+                animation: runAcross 2.8s linear infinite;
+            }
+        </style>
 
         <!-- Profile Banner -->
         
@@ -913,6 +1006,14 @@
                     
                     <img src="https://cdn.discordapp.com/avatar-decoration-presets/a_918f5d4088854a5d12cfb0e9b821396d.png?size=96" alt="Avatar Decoration" class="avatar-decoration">
                     
+
+                    <dotlottie-wc
+                        class="avatar-hat"
+                        src="https://lottie.host/6eb666e2-f7f0-42ee-adb4-fbd48f7af40e/dUwXuVnvEp.lottie"
+                        autoplay
+                        loop
+                        aria-hidden="true"></dotlottie-wc>
+
                     <div class="status-indicator" title="Online"></div>
                 </div>
             </div>
@@ -989,7 +1090,7 @@
 
                 <div class="server-stats">
                     <div class="stat">
-                        <span class="stat-value">45</span>
+                        <span class="stat-value">46</span>
                         <span class="stat-label">Members</span>
                     </div>
                     <div class="stat">
@@ -1014,7 +1115,7 @@
             <div class="footer">
                 <p class="footer-text">
                     Generated with ❤️ by Himari Discord Bot<br>
-                    December 23, 2025 at 10:14 PM<br>
+                    December 24, 2025 at 12:19 PM<br>
                     <a href="https://github.com/tnienow4-crypto/himari-wishing" class="footer-link" target="_blank">
                         View on GitHub
                     </a>
@@ -1072,7 +1173,7 @@
 
         // This card number is assigned by the bot when generating the HTML
         // It will be the same for everyone who opens this particular link
-        const selectedCard = 0 || 0;
+        const selectedCard = 4 || 0;
 
         function openGiftBox() {
             // Simply open the card in a new tab
@@ -1083,6 +1184,37 @@
                 // Save that they opened it
                 localStorage.setItem('christmas_card_claimed', 'true');
             }
+        }
+
+        // Animation Sequence Logic
+        const introLottie = document.getElementById('intro-lottie');
+        const runningLottie = document.getElementById('running-lottie');
+        const runningLottieWrapper = document.getElementById('running-lottie-wrapper');
+
+        let hasStartedRunner = false;
+
+        function startRunningSequenceOnce() {
+            if (hasStartedRunner) return;
+            hasStartedRunner = true;
+
+            if (introLottie) {
+                introLottie.classList.add('fade-out');
+            }
+
+            setTimeout(() => {
+                if (introLottie) introLottie.style.display = 'none';
+                if (runningLottieWrapper) runningLottieWrapper.classList.add('running-animation');
+                if (runningLottie && typeof runningLottie.play === 'function') runningLottie.play();
+            }, 900);
+        }
+
+        if (introLottie) {
+            introLottie.addEventListener('complete', startRunningSequenceOnce);
+
+            // Fallback: if the web-component event doesn't fire, start after a short delay.
+            setTimeout(startRunningSequenceOnce, 4500);
+        } else {
+            startRunningSequenceOnce();
         }
     </script>
 </body>
